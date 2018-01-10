@@ -3,6 +3,7 @@
 #JAVA_HOME="/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.151.x86_64/jre"
 #APP_HEAP_OPTS="-Xmx1G -Xms1G"
 #APP_JVM_OPTS="-server -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:InitiatingHeapOccupancyPercent=35 -XX:+DisableExplicitGC -Djava.awt.headless=true"
+APP_OPTS=""
 ###########################################################################
 cd $(dirname $0)
 APP_HOME=$(pwd)
@@ -54,7 +55,7 @@ if [ ! -d "$APP_HOME/logs" ]; then
     mkdir "$APP_HOME/logs"
 fi
 
-COMMAND="$JAVA $APP_HEAP_OPTS $APP_JVM_OPTS -cp $LIB_JARS:$APP_HOME $APP_CLASS $@"
+COMMAND="$JAVA $APP_HEAP_OPTS $APP_JVM_OPTS $APP_OPTS -cp $LIB_JARS:$APP_HOME $APP_CLASS $@"
 echo  $COMMAND
 echo
 
