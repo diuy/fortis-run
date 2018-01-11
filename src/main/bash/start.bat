@@ -29,7 +29,7 @@ IF ["%APP_JVM_OPTS%"] EQU [""] (
 	set APP_JVM_OPTS=-server -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:InitiatingHeapOccupancyPercent=35 -XX:+DisableExplicitGC -Djava.awt.headless=true
 )
 
-set COMMAND=%JAVA% %APP_HEAP_OPTS% %APP_JVM_OPTS% %APP_OPTS% -cp "%LIB_JARS%;." %APP_CLASS%
+set COMMAND=%JAVA% %APP_HEAP_OPTS% %APP_JVM_OPTS% %APP_OPTS% -cp "%LIB_JARS%" %APP_CLASS%
 
 echo %COMMAND%
 echo.
