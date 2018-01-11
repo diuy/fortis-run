@@ -25,6 +25,6 @@ while [ $COUNT -lt 1 ]; do
         fi
     done
 done
-
+echo ""
 echo "$APP_HOME is stopped"
 echo "PID: $PIDS"

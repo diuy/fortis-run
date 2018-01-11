@@ -6,12 +6,11 @@ rem set APP_JVM_OPTS="-server -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:Initiatin
 set APP_OPTS=
 
 set APP_HOME=%CD%
-set APP_JAR=bootstrap.jar
 set APP_CLASS=com.fortis.run.Bootstrap
 
 title %APP_HOME%
 
-set LIB_JARS=%APP_JAR%
+set LIB_JARS=conf
 cd lib
 for %%i in (*.jar) do set LIB_JARS=!LIB_JARS!;lib\%%i
 cd ..

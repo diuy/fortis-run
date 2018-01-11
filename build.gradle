@@ -31,7 +31,7 @@ jar{
                 "Implementation-Version": version)
         attributes 'Main-Class': "com.fortis.run.Bootstrap"
     }
-    exclude("*.properties","readme.txt")
+    exclude("*.properties","readme.txt","*.xml")
 }
 
 dependencies {
@@ -44,13 +44,18 @@ dependencies {
 task pack(type:Zip,dependsOn:jar){
     from(jar.outputs.files) {
         include("${project.name}*.jar")
-        rename  {"bootstrap.jar"}
+        //rename  {"bootstrap.jar"}
+        into("lib")
     }
     from(configurations.compile){
         into("lib")
     }
     from(sourceSets.main.resources){
         exclude("log4j.properties")
+        into("conf")
+    }
+    from("src/main/conf"){
+        into("conf")
     }
     from("src/main/bash/"){
 

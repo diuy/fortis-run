@@ -7,10 +7,9 @@ APP_OPTS=""
 ###########################################################################
 cd $(dirname $0)
 APP_HOME=$(pwd)
-APP_JAR=bootstrap.jar
 APP_CLASS=com.fortis.run.Bootstrap
 
-LIB_JARS="$APP_HOME/$APP_JAR"
+LIB_JARS="$APP_HOME/conf"
 for i in $APP_HOME/lib/*.jar; do
   LIB_JARS="$LIB_JARS":"$i"
 done
@@ -55,7 +54,7 @@ if [ ! -d "$APP_HOME/logs" ]; then
     mkdir "$APP_HOME/logs"
 fi
 
-COMMAND="$JAVA $APP_HEAP_OPTS $APP_JVM_OPTS $APP_OPTS -cp $LIB_JARS:$APP_HOME $APP_CLASS $@"
+COMMAND="$JAVA $APP_HEAP_OPTS $APP_JVM_OPTS $APP_OPTS -cp $LIB_JARS $APP_CLASS $@"
 echo  $COMMAND
 echo
 
